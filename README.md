@@ -1,5 +1,5 @@
+---
 
-```markdown
 # 🩸 BloodDonation — Automated Blood Management & Appointment System
 
 A robust, framework-less full-stack web application designed to bridge the critical gap between blood donors, hospitals, and system administrators. The platform automates the entire lifecycle of blood donation, from finding available blood stocks to booking, tracking, and managing donation appointments through secure custom-built APIs.
@@ -9,23 +9,26 @@ A robust, framework-less full-stack web application designed to bridge the criti
 ## 🚀 Features & Core Workflows
 
 ### 🏥 Hospital Portal
-- **Inventory Management:** Allows medical institutions to view, track, and update live blood group availability.
-- **Appointment Processing:** Hospitals can approve, reschedule, or complete donation appointments initiated by registered donors.
+
+* **Inventory Management:** Allows medical institutions to view, track, and update live blood group availability.
+* **Appointment Processing:** Hospitals can approve, reschedule, or complete donation appointments initiated by registered donors.
 
 ### 🩸 Donor Portal
-- **Profile & Health Tracking:** Donors can manage their demographic profile and track their eligibility criteria (such as the 90-day donation interval).
-- **Interactive Appointment Booking:** Seamlessly book, view, and cancel donation slots at preferred hospitals, receiving instant feedback.
+
+* **Profile & Health Tracking:** Donors can manage their demographic profile and track their eligibility criteria (such as the 90-day donation interval).
+* **Interactive Appointment Booking:** Seamlessly book, view, and cancel donation slots at preferred hospitals, receiving instant feedback.
 
 ### 🛡️ Admin Dashboard & Governance
-- **Centralized Oversight:** Full CRUD control over registered hospitals, donors, and system logs.
-- **System Integrity:** Secure cascade deletions to clean up related transactions (e.g., deleting a hospital automatically archives or deletes its associated pending appointments).
+
+* **Centralized Oversight:** Full CRUD control over registered hospitals, donors, and system logs.
+* **System Integrity:** Secure cascade deletions to clean up related transactions (e.g., deleting a hospital automatically archives or deletes its associated pending appointments).
 
 ---
 
 ## 🧱 Technical Architecture
 
 | Layer | Technology |
-|---|---|
+| --- | --- |
 | **Backend** | PHP 7+ (Clean Procedural & API-Driven Architecture) |
 | **Database** | MySQL with PDO (PHP Data Objects) + Prepared Statements |
 | **Frontend** | HTML5, CSS3, Vanilla JavaScript, Bootstrap |
@@ -35,33 +38,9 @@ A robust, framework-less full-stack web application designed to bridge the criti
 
 ## 🔒 Security & Database Highlights
 
-- **PDO Prepared Statements:** Absolute protection against SQL injection attacks by ensuring zero raw query concatenation.
-- **API-Driven Segregation:** Separate, dedicated endpoint controllers (`donor_api.php`, `hospital_api.php`, `admin_api.php`) ensuring modular backend routing.
-- **Secure Transaction Handling:** SQL transaction parameters and error boundaries (`try/catch` blocks) ensuring atomic updates in case of appointment cancellations or registration rollbacks.
-
-### Code Sample: Dynamic API Endpoint Control
-```php
-try {
-    switch ($action) {
-        case 'get_my_appointments':
-            $stmt =$pdo->prepare("SELECT * FROM DonationAppointment WHERE DonorID = ? ORDER BY AppointmentDate DESC");
-            $stmt->execute([$donorId]);
-            echo json_encode($stmt->fetchAll());
-            break;
-
-        case 'cancel_appointment':
-            $appointmentId =$_GET['appointment_id'];
-            $stmt =$pdo->prepare("DELETE FROM DonationAppointment WHERE AppointmentID = ?");
-            $stmt->execute([$appointmentId]);
-            echo json_encode(['success' => true, 'message' => 'Appointment cancelled successfully']);
-            break;
-    }
-} catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
-}
-
-```
+* **PDO Prepared Statements:** Absolute protection against SQL injection attacks by ensuring zero raw query concatenation.
+* **API-Driven Segregation:** Separate, dedicated endpoint controllers (`donor_api.php`, `hospital_api.php`, `admin_api.php`) ensuring modular backend routing.
+* **Secure Transaction Handling:** SQL transaction parameters and error boundaries (try/catch blocks) ensuring atomic updates in case of appointment cancellations or registration rollbacks.
 
 ---
 
@@ -92,11 +71,14 @@ Blooddonation/
 
 1. **Clone the repository:**
 ```bash
-git clone [https://github.com/Ayafarhatt/Blooddonation.git](https://github.com/Ayafarhatt/Blooddonation.git)
+git clone https://github.com/Ayafarhatt/Blooddonation.git
+
 ```
 
-2. Place the folder inside your local server root directory (e.g., `htdocs/` for XAMPP).
-3. Import the database schema `db/blooddb.sql` into your MySQL server (via phpMyAdmin or CLI).
-4. Configure database credentials in `db.php`.
-5. Access the app via `http://localhost/Blooddonation/` in your browser.
 
+2. Place the folder inside your local server root directory (e.g., htdocs/ for XAMPP).
+3. Import the database schema db/blooddb.sql into your MySQL server (via phpMyAdmin or CLI).
+4. Configure database credentials in db.php.
+5. Access the app via http://localhost/Blooddonation/ in your browser.
+
+---
