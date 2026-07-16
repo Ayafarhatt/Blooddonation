@@ -1,6 +1,6 @@
 ---
 
-# 🩸 BloodDonation — Automated Blood Management & Appointment System
+# 🩸 BloodDonation - Automated Blood Management & Appointment System
 
 A robust, framework-less full-stack web application designed to bridge the critical gap between blood donors, hospitals, and system administrators. The platform automates the entire lifecycle of blood donation, from finding available blood stocks to booking, tracking, and managing donation appointments through secure custom-built APIs.
 
