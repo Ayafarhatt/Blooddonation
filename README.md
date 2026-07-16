@@ -100,7 +100,3 @@ git clone [https://github.com/Ayafarhatt/Blooddonation.git](https://github.com/A
 4. Configure database credentials in `db.php`.
 5. Access the app via `http://localhost/Blooddonation/` in your browser.
 
-
-وهيك بصير عندك بروفايل مشروع بيفتح النفس ومثالي للـ CV! شو رأيك بالصياغة والترتيب؟
-
-```
